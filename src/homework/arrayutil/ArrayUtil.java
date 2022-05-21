@@ -41,7 +41,7 @@ public class ArrayUtil {
                 even++;
             }
         }
-        System.out.print("Նumber of even numbers = " + even);
+        System.out.print("Nmber of even numbers = " + even);
         System.out.println();
         int odd = 0;
         for (int p = 0; p < array.length; p++) {

@@ -12,6 +12,7 @@ public class BoolTest {
         if (b) System.out.println("Ays kod chi ashxati");
 
         System.out.println("\\10 > 9 hava\nsar e " + (10 < 9));
-        System.out.println("\t10 > 9 hava\nsar e " + (10 < 9));
+        System.out.println("10 > 9 havasar e " + (10 > 9));
+        System.out.println(b);
     }
 }
