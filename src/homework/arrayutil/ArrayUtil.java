@@ -25,6 +25,8 @@ public class ArrayUtil {
         }
         System.out.print("Minimum number = " + min);
         System.out.println();
+
+
         for (int l = 0; l < array.length; l++) {
             if (array[l] % 2 == 0)
                 System.out.print("Even number - " + array[l] + " ");
@@ -51,6 +53,7 @@ public class ArrayUtil {
         }
         System.out.print("Number of odd numbers = " + odd);
         System.out.println();
+
         int average = 0;
         for (int v = 0; v < array.length; v++) {
             average += array[v];
