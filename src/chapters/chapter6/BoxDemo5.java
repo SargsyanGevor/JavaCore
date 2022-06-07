@@ -7,8 +7,8 @@ public class BoxDemo5 {
 
         double vol;
 
-        mayBox1.arkxiCaval(10,100,15);
-        mayBox2.arkxiCaval(15,4,9);
+//        mayBox1.arkxiCaval(10,100,15);
+//        mayBox2.arkxiCaval(15,4,9);
 
         vol = mayBox1.volume();
         System.out.println("Cavaly havasar e " + vol);

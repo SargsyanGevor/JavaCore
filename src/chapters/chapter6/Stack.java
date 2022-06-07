@@ -1,16 +1,22 @@
 package chapters.chapter6;
 
 public class Stack {
-    int [] array = new int[10];
-    int index;
+    char[] stck = new char[10];
+    int tos = 0;
 
-    Stack(){
-        index = -1;
+ public void push(char item) {
+        if (tos == 10) {
+            System.out.println("Stack lcvac e.");
+        } else
+            stck[++tos] = item;
     }
 
-    void push (int value){
-        array[++index] = value;
+    public char pop() {
+        if (tos < 0) {
+            System.out.println("Stack ne zagrujen");
+            return 0;
+        } else {
+            return stck[tos--];
+        }
     }
-
-
 }
