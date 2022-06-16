@@ -6,7 +6,7 @@ import chapters.chapter6.Stack;
 public class BraceChecker {
 
 
-    private String text;
+    public String text;
 
     BraceChecker(String text) {
         this.text = text;
@@ -20,32 +20,49 @@ public class BraceChecker {
                 case '(':
                 case '{':
                 case '[':
-
                     stack.push(a);
                     break;
             }
             char b;
             switch (a) {
-                case ')':
+                case ')': {
                     b = stack.pop();
                     if (b == '{' || b == '[') {
-                        System.out.println("Eror: openend " + b + " closed ) at " + i);
+                        System.out.println("Error: opened " + b + " closed ) at " + i);
                         break;
                     }
-                case '}':
+                    break;
+                }
+                case '}': {
                     b = stack.pop();
                     if (b == '(' || b == '[') {
                         System.out.println("Eror: openend " + b + " closed } at " + i);
                         break;
                     }
-                case ']':
+                    break;
+                }
+                case ']': {
                     b = stack.pop();
                     if (b == '(' || b == '{') {
                         System.out.println("Eror: openend " + b + " closed ] at " + i);
                         break;
                     }
+                    break;
+                }
+            }
+            switch (a){
+
             }
         }
+
+
+
+        System.out.println("Eror: opened " + stack.pop() + " and not closed"  );
+        System.out.println("Eror: opened " + stack.pop() + " and not closed"  );
+
+
+
     }
+
 }
 
