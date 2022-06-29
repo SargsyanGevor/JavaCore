@@ -20,11 +20,15 @@ public class Menu {
 
         switch (choise) {
             case '1':
-                System.out.println("if:\n");
+                System.out.println("switch:\n");
                 System.out.println("if (payman) operator:");
                 System.out.println("else opertaor:");
                 break;
             case '2':
+                System.out.println(":");
+                System.out.println("if (payman) operator:");
+                System.out.println("else opertaor:");
+                break;
 
         }
     }

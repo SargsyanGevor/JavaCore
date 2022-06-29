@@ -30,7 +30,7 @@ public class DynamicArray {
 
     int getByIndex(int index) {
         if (array.length > 0) {
-            System.out.println(array[index]);
+          return array[index];
         }
         return 0;
     }
@@ -38,31 +38,29 @@ public class DynamicArray {
     int getFirstIndexByValue(int value) {
         for (int i = 0; i < size; i++) {
             if (value == array[i]) {
-                System.out.println(i);
-                break;
+                return i;
             }
         }
         return 0;
     }
 
     void set(int index, int value) {
-        if (index <= array.length) {
+        if (index <= size) {
             array[index] = value;
         }
     }
 
     void add(int index, int value) {
-        int len = size;
-        for (int i = 0; i < len; i++) {
-            if (i < index) {
-                array[index] = array[index];
-            } else {
-                array[size] = array[size - 1];
-                size--;
-            }
+        int[] copyArray = new int[size + 1];
+        for (int i = 0; i < size; i++) {
+            copyArray[i] = array[i];
         }
-        array[index] = value;
-        size = len + 1;
+        for (int i = index; i < size; i++) {
+            copyArray[i + 1] = array[i];
+        }
+        copyArray[index] = value;
+        array = copyArray;
+        size++;
     }
 
     void delete(int index) {

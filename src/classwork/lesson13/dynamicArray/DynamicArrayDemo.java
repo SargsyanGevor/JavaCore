@@ -25,7 +25,7 @@ public class DynamicArrayDemo {
         dynArray.getByIndex(4);
         dynArray.getFirstIndexByValue(10);
         dynArray.set(5,85);
-        dynArray.add(11,125);
+        dynArray.add(1,125);
         dynArray.delete(8);
         dynArray.printArray();
 
