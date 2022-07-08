@@ -1,15 +1,15 @@
-package classwork.students;
+package classwork.students.model;
 
 public class Student {
 
-    private  String name;
+    private String name;
     private String surname;
     private int age;
     private String phoneNumber;
-    private  String city;
-    private  String lesson;
+    private String city;
+    private Lesson lesson;
 
-    public Student(String name, String surname, int age, String phonrNumber, String city, String lesson) {
+    public Student(String name, String surname, int age, String phonrNumber, String city, Lesson lesson) {
         this.name = name;
         this.surname = surname;
         this.age = age;
@@ -61,11 +61,11 @@ public class Student {
         this.city = city;
     }
 
-    public String getLesson() {
+    public Lesson getLesson() {
         return lesson;
     }
 
-    public void setLesson(String lesson) {
+    public void setLesson(Lesson lesson) {
         this.lesson = lesson;
     }
 
@@ -77,7 +77,7 @@ public class Student {
                 ", phonrNumber='" + phoneNumber + '\'' +
                 ", city='" + city + '\'' +
                 ", name='" + name + '\'' +
-                ", lesson='" + lesson + '\'' +
+                ", lesson='" + lesson.getName() + '\'' +
                 '}';
     }
 }

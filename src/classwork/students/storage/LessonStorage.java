@@ -1,20 +1,22 @@
-package classwork.students;
+package classwork.students.storage;
 
-public class StudentStorage {
+import classwork.students.model.Lesson;
 
-    private static Student[] array = new Student[10];
+public class LessonStorage {
+
+    private static Lesson[] array = new Lesson[10];
     private static int size = 0;
 
 
-    public void add(Student student) {
+    public void add(Lesson lesson) {
         if (size == array.length) {
             increaseArray();
         }
-        array[size++] = student;
+        array[size++] = lesson;
     }
 
     private void increaseArray() {
-        Student[] temp = new Student[size + 10];
+        Lesson[] temp = new Lesson[size + 10];
         for (int i = 0; i < size; i++) {
             temp[i] = array[i];
 
@@ -39,23 +41,12 @@ public class StudentStorage {
         }
     }
 
-    public void printStudentsByLessonName(String lessonName) {
-
-        for (int i = 0; i < size; i++) {
-            if (array[i].getLesson().equals(lessonName)) {
-                System.out.println(array[i]);
-            }
-
-        }
-
-    }
-
 
     public int getSize() {
         return size;
     }
 
-    public Student getStudentBayIndex(int index) {
+    public Lesson getLessonBayIndex(int index) {
         if (index < 0 || index >= size) {
             return null;
         }

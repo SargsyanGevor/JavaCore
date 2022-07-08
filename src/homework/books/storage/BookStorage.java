@@ -1,5 +1,7 @@
-package homework.books;
+package homework.books.storage;
 
+
+import homework.books.model.Book;
 
 public class BookStorage {
 
@@ -34,7 +36,7 @@ public class BookStorage {
     public void printBooksByAuthorName(String authorName) {
 
         for (int i = 0; i < size; i++) {
-            if (array[i].getAuthorName().equals(authorName)) {
+            if (array[i].getAuthor().equals(authorName)) {
                 System.out.println(array[i]);
             }
 
@@ -45,12 +47,11 @@ public class BookStorage {
     public void printBooksByGenre(String bookGenre) {
 
         for (int i = 0; i < size; i++) {
-            if (array[i].getGenre().equals(bookGenre)) {
+            if (array[i].getGenre().equalsIgnoreCase(bookGenre)) {
                 System.out.println(array[i]);
             }
-
         }
-
+//        System.err.println("where is not found any book by this genre , try another keyword" );
     }
 
     public void printBooksByPriceRange(double priceRange, double priceRange1) {
