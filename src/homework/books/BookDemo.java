@@ -1,6 +1,6 @@
 package homework.books;
 
-import homework.books.enam.Gender;
+import homework.books.model.Gender;
 import homework.books.exception.AuthorNotFoundException;
 import homework.books.model.Author;
 import homework.books.model.Book;

@@ -1,7 +1,5 @@
 package homework.books.model;
 
-import homework.books.enam.Gender;
-
 public class Author {
 
     private String name;
