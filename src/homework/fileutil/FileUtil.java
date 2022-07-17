@@ -26,7 +26,7 @@ public class FileUtil {
         String path = scanner.nextLine();
         System.out.println("Please input file name");
         String fileName = scanner.nextLine();
-        File myFile = new File(path + "\\" + fileName);
+        File myFile = new File(path + File.separator + fileName);
         System.out.println(myFile.exists());
     }
 
@@ -43,51 +43,62 @@ public class FileUtil {
         File myFile = new File(path);
         if (myFile.isDirectory()) {
             File[] files = myFile.listFiles();
-            for (File file : files)
+            for (File file : files) {
                 if (file.getName().endsWith(".txt")) {
                     try (BufferedReader bw = new BufferedReader(new FileReader(file))) {
                         String line;
                         while ((line = bw.readLine()) != null) {
-//                            System.out.println(line);
                             if (line.contains(keyword)) {
                                 System.out.println(file.getName());
+                                break;
                             }
-
                         }
-
                     }
-
                 }
+            }
         }
     }
+
 
     //այս մեթոդը պետք է սքաններով վերցնի երկու string.
     // 1 - txtPath txt ֆայլի փաթը
     // 2 - keyword - ինչ որ բառ
     // տալու ենք txt ֆայլի տեղը, ու ինչ որ բառ, ինքը տպելու է էն տողերը, որտեղ գտնի էդ բառը։
-    static void findLines() {
+    static void findLines() throws IOException {
         System.out.println("Please input path");
         String txtPath = scanner.nextLine();
         System.out.println("Please input any word");
         String keyword = scanner.nextLine();
-
+        try (BufferedReader br = new BufferedReader(new FileReader(txtPath))) {
+            String line;
+            int index = 0;
+            while ((line = br.readLine()) != null) {
+                index++;
+                if (line.contains(keyword)) {
+                    System.out.print("Row number " + index + ": ");
+                    System.out.println(line);
+                }
+            }
+            System.out.println("There is no such word in any line");
+        }
     }
+
 
     //այս մեթոդը պետք է սքաններով վերցնի մեկ string.
     // 1 - path թե որ ֆոլդերի չափն ենք ուզում հաշվել
     // ֆոլդերի բոլոր ֆայլերի չափսերը գումարում ենք իրար, ու տպում
     static void printSizeOfPackage() {
-        long size = 0;
+        double size = 0;
         System.out.println("Please input path");
         String path = scanner.nextLine();
         File mayFile = new File(path);
         if (mayFile.isDirectory()) {
             File[] files = mayFile.listFiles();
             for (File file : files) {
-                long a = file.length();
+                double a = file.length();
                 size = size + a;
             }
-            System.out.println("The volume of files in the folder is equal " + size + " bytes:");
+            System.out.println("The volume of files in the folder is equal " + size / 1024 + " KB:");
         }
 
     }
@@ -104,9 +115,9 @@ public class FileUtil {
         String fileName = scanner.nextLine();
         System.out.println("Please input file content");
         String fileContent = scanner.nextLine();
-        File myFile = new File(path + "\\" + fileName);
+        File myFile = new File(path + File.separator + fileName);
         myFile.createNewFile();
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(path + "\\" + fileName))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(path + File.separator + fileName))) {
             bw.write(fileContent);
         }
     }
